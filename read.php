@@ -32,7 +32,7 @@
                     ,email
                     ,datum_inschrijving
             FROM Inschrijving
-            ORDER BY inschrijfid";
+            ORDER BY homeclub desc";
 
     // 5. We bereiden de query voor met de method prepare()
     $statement = $pdo->prepare($sql);
