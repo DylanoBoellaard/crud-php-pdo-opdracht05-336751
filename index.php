@@ -1,24 +1,25 @@
+<?php
+require('vestiging.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>crud-php-pdo-opdracht05</title>
 </head>
-
 <body>
     <h3>BASIC-FIT Utrecht</h3>
-
-    <a href="read.php">Afspraken</a>
+    <a href="read.php">Inschrijvingen</a>
     <form action="create.php" method="post">
         <label for="homeclub">Kies je homeclub:</label><br>
-        <select name="homeclub" id="homeclub" required>
-            <option value="homeclub1">Homeclub 1</option>
-            <option value="homeclub2">Homeclub 2</option>
-            <option value="homeclub3">Homeclub 3</option>
-        </select>
+            <select name="homeclub" id="homeclub">
+                <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
+                    <option value="<?= $row['naam'] ?>"><?= $row['naam'] ?></option>
+                <?php } ?>
+            </select>
     <br>
     <br>
         <label for="lidmaatschap">Selecteer een lidmaatschap:</label><br>
@@ -57,5 +58,4 @@
         <input type="reset" value="Reset">
     </form>
 </body>
-
 </html>
