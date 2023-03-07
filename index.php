@@ -13,7 +13,7 @@ require('vestiging.php');
 <body>
     <h3>BASIC-FIT Utrecht</h3>
     <a href="read.php">Inschrijvingen</a>
-    <form action="create.php" method="post">
+    <form action="create.php" method="post" onsubmit="setDateTime()">
         <label for="homeclub">Kies je homeclub:</label><br>
             <select name="homeclub" id="homeclub">
                 <?php while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
@@ -39,13 +39,13 @@ require('vestiging.php');
     <br>
     <br>
         <label for="extra">Selecteer je extra's:</label><br>
-        <input type="checkbox" name="extra" id="yanga" value="yanga">
+        <input type="checkbox" name="yanga" id="yanga" value="ja">
             <label for="yanga">Yanga sportswater €2,50 per 4 weken</label>
     <br>
-        <input type="checkbox" name="extra" id="coach" value="coach">
+        <input type="checkbox" name="coach" id="coach" value="ja">
             <label for="coach">Personal online coach €60,00 eenmalig</label>
     <br>
-        <input type="checkbox" name="extra" id="training" value="training">
+        <input type="checkbox" name="training" id="training" value="ja">
             <label for="training">Personal training intro €25,00 eenmalig</label>
     <br>
     <br>
@@ -53,9 +53,18 @@ require('vestiging.php');
             <input type="email" name="email" id="email" required>
     <br>
     <br>
-        <input type="datetime" name="date" id="date" hidden>
+    <input type="hidden" name="datum_inschrijving" id="datum_inschrijving">
         <input type="submit" value="Sla op">
         <input type="reset" value="Reset">
     </form>
+
+    <script>
+    function setDateTime() {
+        var now = new Date();
+        var datetime = now.getFullYear() + '-' + (now.getMonth()+1) + '-' + now.getDate() + ' ' + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+        document.getElementById('datum_inschrijving').value = datetime;
+    }
+    </script>
+
 </body>
 </html>
