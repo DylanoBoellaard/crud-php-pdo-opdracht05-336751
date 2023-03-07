@@ -34,7 +34,7 @@ require('vestiging.php');
         <label for="looptijd">Looptijd:</label><br>
         <input type="radio" name="looptijd" id="jaarlidmaatschap" value="jaarlidmaatschap">
             <label for="jaarlidmaatschap">Jaarlidmaatschap</label>
-        <input type="radio" name="looptijd" id="flex">
+        <input type="radio" name="looptijd" id="flex" value="flex">
             <label for="flex">Flex optie</label>
     <br>
     <br>
@@ -53,7 +53,7 @@ require('vestiging.php');
             <input type="email" name="email" id="email" required>
     <br>
     <br>
-    <input type="hidden" name="datum_inschrijving" id="datum_inschrijving">
+        <input type="hidden" name="datum_inschrijving" id="datum_inschrijving">
         <input type="submit" value="Sla op">
         <input type="reset" value="Reset">
     </form>
